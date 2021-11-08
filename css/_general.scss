@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+//COLORS
+$color-1: #26256c;
+$color-2: #9050ef;
+$color-3: #7e709d;
+$color-4: #f2ecff;
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+//TYPOGRAPHY
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  @media only screen and (max-width: 600px) {
+    font-size: 55%;
+  }
+}
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+@mixin font-title($size) {
+  font-weight: 700;
+  color: $color-1;
+  @if $size == h1 {
+    font-size: 5.5rem;
+  }
+  @else if $size == h2 {
+    font-size: 3.2rem;
+  }
+  @else if $size == h3 {
+    font-size: 2.8rem;
+  }
+  @else if $size == h4 {
+    font-size: 2.1rem;
+  }
+}
+
+@mixin font-p($size) {
+  font-weight: 400;
+  color: $color-3;
+  @if $size == p20 {
+    font-size: 2.0rem;
+    line-height: 3.0rem;
+  }
+  @else if $size == p18 {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
+  @else if $size == p16 {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}
+
+//GRID
+@mixin container {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+//BREACKPOINTS
+$x-large: 1024px;
+$large: 900px;
+$medium: 770px;
+$small: 425px;
+
+@mixin breackpoints($point) {
+  @if $point == xl {
+    @media only screen and (max-width: $x-large) {
+      @content;
+    }
+  }
+  @else if $point == lg {
+    @media only screen and (max-width: $large) {
+      @content;
+    }
+  }
+  @else if $point == md {
+    @media only screen and (max-width: $medium) {
+      @content;
+    }
+  }
+  @else if $point == sm {
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  }
+}
+
+//BUTTONS
+
+@mixin btn($btn-style) {
+  @if $btn-style == light {
+    padding: 12px 0px;
+    background: $color-2;
+    color: white;
+    border-radius: 30px;
+    text-align: center;
+    display: inline-block;
+    width: 180px;
+    transition: .2s;
+    &:hover {
+      background: darken($color-2, $amount: 10);
+    }
+  }
+  @else if $btn-style == dark {
+    padding: 12px 0px;
+    background: white;
+    color: $color-1;
+    border-radius: 30px;
+    text-align: center;
+    display: block;
+    width: 180px;
+    transition: .2s;
+    &:hover {
+      background: darken(white, $amount: 10);
+    }
+  }
+}

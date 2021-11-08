@@ -1,0 +1,437 @@
+@import 'normalize';
+@import 'reset';
+@import 'general';
+
+//TIPOGRAPHI
+h1 {
+  @include font-title(h1);
+}
+h2 {
+  @include font-title(h2);
+}
+h3 {
+  @include font-title(h3);
+}
+h4 {
+  @include font-title(h4);
+}
+p, ul, li, a {
+  @include font-p(p18);
+}
+
+//CONTAINER 
+.container {
+  @include container;
+}
+
+
+//HEADER
+.header-bg {
+  background: #fff;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  transition: box-shadow .3s;
+}
+.shadow-scroll {
+  box-shadow: 0px 10px 20px rgba(60, 0, 100, 0.07);
+}
+
+.header {
+  min-height: 8rem;
+  padding: 0% 1rem;
+  justify-content: space-between;
+  align-items: center;
+  .header-menu {
+    display: flex;
+    align-items: center;
+    .open, .close {
+      display: none;
+    }
+    ul {
+      display: flex;
+      gap: 3rem;
+      li a {
+        padding: 0.7rem 0rem;
+        position: relative;
+        transition: .3s;
+        &:hover {
+        color: $color-2;
+        }
+        &::after {
+          content: '';
+          width: 0%;
+          height: 3px;
+          background: $color-2;
+          position: absolute;
+          left: 0;
+          bottom: -.5rem;
+          transition: .3s;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+    .btn {
+      @include btn(light);
+      margin-left: 5rem;
+    }
+  }
+}
+
+@include breackpoints(xl) {
+  .header .header-menu .btn {
+    display: none;
+  }
+}
+@include breackpoints(md) {
+  .header {
+    position: relative;
+    .header-menu .open {
+      display: block;
+      width: 60%;
+      cursor: pointer;
+    }
+    .header-menu ul {
+      display: none;
+    }
+    .header-menu ul.menu-dropdown {
+      display: block;
+      background: #eee;
+      position: absolute;
+      width: 100%;
+      top: 8rem;
+      left: 0px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+      li {
+        margin: 0px;
+        margin: 10px;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+
+//BANNER
+.banner-bg {
+  background: $color-4;
+}
+.banner {
+  min-height: 60rem;
+  margin-top: 8rem;
+  align-items: center;
+  .banner-copy {
+    flex: 1;
+    padding: 1.5rem;
+    p {
+      margin: 2rem 0rem 3rem;
+      max-width: 45rem;
+      @include font-p(p20);
+    }
+    .banner-copy-apps img {
+      display: inline;
+      margin-right: 1rem;
+      transition: .3s;
+      &:hover {
+        transform: translateY(-0.5rem);
+      }
+    }
+  }
+  .banner-image {
+    flex: 1;
+    padding: 1.5rem;
+    img {
+      float: right;
+    }
+  }
+}
+
+@include breackpoints(lg) {
+  .banner {
+    flex-direction: column-reverse;
+    padding: 3rem 0%;
+    .banner-copy {
+      text-align: center;
+      h1 {
+        max-width: 80rem;
+      }
+      p {
+        margin: 2rem auto 3rem;
+      }
+    }
+  }
+}
+
+//SERVICES 
+.services {
+  display: block;
+  padding: 10rem 0rem 8rem;
+  border-bottom: 3px solid $color-4;
+  h2 {
+    max-width: 80rem;
+    margin: 0rem auto 6rem;
+    text-align: center;
+    &::after {
+      content: '. . . .';
+      display: block;
+    }
+  }
+  .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .services-details {
+      flex: 1;
+      padding: 1.5rem;
+      > div {
+        max-width: 45rem;
+        margin-right: 3rem;
+      }
+      h4 {
+        margin: 3rem 0rem 1.5rem;
+      }
+      .btn {
+        @include btn(light);
+        margin-top: 3.5rem;
+      }
+    }
+    .services-grid {
+      flex: 1;
+      padding: 1.5rem;
+      .box {
+        background: #fff;
+        min-width: 17rem;
+        max-width: 20rem;
+        padding: 4rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        h4 {
+          margin: 2rem 0rem;
+        }
+        transition: .3s;
+        &:hover {
+          background: $color-4;
+          transform: translateY(-1.5rem);
+        }
+      }
+    }
+  }
+}
+.services-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template: 
+  "item-1 ." 7rem
+  "item-1 item-3" 25rem
+  "item-2 item-3" 7rem
+  "item-2 link" 25rem 
+  ;
+
+  .item-1 {
+    grid-area: item-1;
+  }
+  .item-2 {
+    grid-area: item-2;
+  }
+  .item-3 {
+    grid-area: item-3;
+  }
+  .link {
+    grid-area: link;
+    
+  }
+}
+
+@include breackpoints(lg) {
+  .services .services-container {
+    flex-direction: column;
+    .services-details > div {
+      margin-right: 0px;
+    }
+    .services-grid {
+      max-width: 60rem;
+      margin-top: 3.5rem;
+    }
+  }
+}
+@media only screen and (max-width: 570px) {
+  .services .services-container .services-grid {
+    grid-template: 
+    "item-1" 35rem
+    "item-2" 35rem
+    "item-3" 35rem
+    "link" 
+    ;
+      
+    }
+}
+
+
+//PROCESS
+.process {
+  padding: 10rem 2rem 7rem;
+  justify-content: center;
+  gap: 3rem;
+  .process-items {
+    flex: 1 1 30rem;
+    display: flex;
+    gap: 2rem;
+    max-width: 420px;
+    .left {
+      flex: 1;
+      img {
+        min-width: 65px;
+      }
+    }
+    .right {
+      flex: 4;
+      h4 {
+        position: relative;
+      }
+    }
+    &:hover ::before {
+      transform: translateY(-1rem);
+    }
+  }
+}
+//Pseudo ==> before
+.process .process-items .right .proc-title-1::before {
+  content: '01.';
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: -5rem;
+  font-size: 11rem;
+  color: #f4f4f4;
+  z-index: -1;
+  transition: .3s;
+}
+.process .process-items .right .proc-title-2::before {
+  content: '02.';
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: -5rem;
+  font-size: 11rem;
+  color: #f4f4f4;
+  z-index: -1;
+  transition: .3s;
+}
+.process .process-items .right .proc-title-3::before {
+  content: '03.';
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: -5rem;
+  font-size: 11rem;
+  color: #f4f4f4;
+  z-index: -1;
+  transition: .3s;
+}
+
+
+//ABOUT 
+.about-bg {
+  background: $color-4;
+}
+.about {
+  min-height: 500px;
+  align-items: center;
+  .about-image {
+    flex: 1;
+    padding: 15px;
+  }
+  .about-details {
+    flex: 1;
+    padding: 15px;
+    p {
+      margin: 20px 0px;
+    }
+    .btn {
+      @include btn(light);
+    }
+  }
+}
+@include breackpoints(md) {
+  .about {
+    flex-direction: column;
+    padding: 30px 0px;
+    .about-details {
+      text-align: center;
+      max-width: 550px;
+      margin-top: 40px;
+      .btn {
+        margin: 0% auto;
+      }
+    }
+  }
+}
+
+//NEWSLATTER
+
+
+
+//PRICING
+
+
+
+//PARTNERS
+
+
+
+//FOOTER 
+.footer-bg {
+  background: $color-1;
+  .footer {
+    display: flex;
+    padding-top: 10rem;
+    padding-bottom: 9rem;
+    > div {
+      flex: 1;
+      h4, p, li {
+        color: $color-4;
+      }
+      p {
+        margin-left: 1rem;
+      }
+    }
+  }
+  .footer-copyright {
+    min-height: 6rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    p, a {
+    color: $color-4;
+    font-size: 1.6rem;
+    }
+  }
+  .back-to-top {
+    background: $color-4;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px #0002;
+    > a {
+      display: inline-block;
+      padding: 1.5rem 3rem;
+    }
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: .5s;
+  }
+  .show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0%);
+
+  }
+}
