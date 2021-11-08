@@ -811,7 +811,7 @@ p, ul, li, a, input, button {
   border: none;
   width: 37.5rem;
   background: #f2ecff;
-  margin: 1rem;
+  margin: 1rem 0%;
   padding: 1.5rem 2rem;
   border-radius: 100px;
   outline: none;
@@ -831,6 +831,11 @@ p, ul, li, a, input, button {
   background: #7221eb;
 }
 
+@media (max-width: 430px) {
+  .newslatter .newslatter-form input {
+    width: 27rem;
+  }
+}
 .price {
   padding: 10rem 1.5rem;
   text-align: center;
