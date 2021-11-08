@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -411,7 +412,7 @@ h4 {
   font-size: 2.1rem;
 }
 
-p, ul, li, a {
+p, ul, li, a, input, button {
   font-weight: 400;
   color: #7e709d;
   font-size: 1.8rem;
@@ -787,22 +788,157 @@ p, ul, li, a {
     margin: 0% auto;
   }
 }
+.newslatter {
+  padding-top: 13rem;
+  padding-bottom: 13rem;
+  text-align: center;
+  flex-direction: column;
+}
+.newslatter .newsllater-title {
+  max-width: 80rem;
+  margin: 0% auto;
+  padding: 0rem 1.5rem;
+}
+.newslatter .newsllater-title p {
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+.newslatter .newslatter-form {
+  margin-bottom: 2rem;
+  padding: 0rem 1.5rem;
+}
+.newslatter .newslatter-form input {
+  border: none;
+  width: 37.5rem;
+  background: #f2ecff;
+  margin: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 100px;
+  outline: none;
+}
+.newslatter .newslatter-form .btn {
+  padding: 12px 0px;
+  background: #9050ef;
+  color: white;
+  border-radius: 30px;
+  text-align: center;
+  display: inline-block;
+  width: 180px;
+  transition: 0.2s;
+  border: none;
+}
+.newslatter .newslatter-form .btn:hover {
+  background: #7221eb;
+}
+
+.price {
+  padding: 10rem 1.5rem;
+  text-align: center;
+  justify-content: center;
+}
+.price > h2::after {
+  content: ". . . .";
+  display: block;
+}
+.price > p {
+  margin-top: 2.5rem;
+  margin-bottom: 8rem;
+}
+.price .price-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+}
+.price .price-boxes .price-box {
+  flex: 1 1 260px;
+  max-width: 320px;
+  border: 2px solid #e7e7e7;
+  border-radius: 2rem;
+  padding: 4rem 3rem;
+  transition: 0.3s;
+}
+.price .price-boxes .price-box > p {
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+}
+.price .price-boxes .price-box > span {
+  display: block;
+  padding: 2rem 0%;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #9050ef;
+  border-top: 2px solid #e7e7e7;
+  border-bottom: 2px solid #e7e7e7;
+}
+.price .price-boxes .price-box ul {
+  padding: 3rem 0%;
+}
+.price .price-boxes .price-box ul li {
+  padding: 1rem;
+  font-size: 1.8rem;
+}
+.price .price-boxes .price-box ul li::before {
+  content: "✓";
+  margin-right: 1rem;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #9050ef;
+}
+.price .price-boxes .price-box .btn {
+  padding: 12px 0px;
+  background: #9050ef;
+  color: white;
+  border-radius: 30px;
+  text-align: center;
+  display: inline-block;
+  width: 180px;
+  transition: 0.2s;
+}
+.price .price-boxes .price-box .btn:hover {
+  background: #7221eb;
+}
+.price .price-boxes .price-box:hover {
+  box-shadow: 3px 3px 20px #0002;
+  border: 2px solid #fff;
+  transform: translateY(-2rem);
+}
+
 .footer-bg {
   background: #26256c;
 }
 .footer-bg .footer {
   display: flex;
-  padding-top: 10rem;
-  padding-bottom: 9rem;
+  flex-wrap: wrap;
+  padding: 9rem 1rem 8rem;
 }
 .footer-bg .footer > div {
-  flex: 1;
+  flex: 1 1 180px;
+  margin-bottom: 2rem;
 }
-.footer-bg .footer > div h4, .footer-bg .footer > div p, .footer-bg .footer > div li {
+.footer-bg .footer > div h4 {
   color: #f2ecff;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 .footer-bg .footer > div p {
-  margin-left: 1rem;
+  font-weight: 400;
+  color: #7e709d;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-top: 1rem;
+  color: #b8aecd;
+  max-width: 190px;
+}
+.footer-bg .footer > div li a {
+  font-weight: 400;
+  color: #7e709d;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  color: #b8aecd;
 }
 .footer-bg .footer-copyright {
   min-height: 6rem;
@@ -814,7 +950,10 @@ p, ul, li, a {
 }
 .footer-bg .footer-copyright p, .footer-bg .footer-copyright a {
   color: #f2ecff;
+  font-weight: 400;
+  color: #7e709d;
   font-size: 1.6rem;
+  line-height: 2.4rem;
 }
 .footer-bg .back-to-top {
   background: #f2ecff;
